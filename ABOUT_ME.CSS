@@ -1,0 +1,279 @@
+/* GLOBAL FIX */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0047CF;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ALL SECTIONS FULL SCREEN */
+section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0047CF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px; /* to avoid header overlap */
+}
+
+/* HEADER NAVIGATION */
+header {
+  width: 100%;
+  background-color: #000000;
+  padding: 40px 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: right;
+  gap: 30px;
+  padding-right: 50px;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Jomolhari', serif;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #0b1c39;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* ABOUT SECTION CONTAINER */
+.about-container {
+  width: 800px;
+  text-align: center;
+}
+
+/* HEADINGS ANIMATIONS */
+.about-container h2,
+.about-container h3,
+.about-container p,
+.education-item img,
+.fun-facts li {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1s forwards;
+}
+
+.about-container h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-family: 'Jomolhari', serif;
+  animation-delay: 0.5s;
+}
+
+.about-container p {
+  font-size: 37px;
+  line-height: 1.5;
+  color: #ffffff;
+  word-spacing: 15px;       /* spread words a little */
+  letter-spacing: 1.2px;    
+  text-align: justify;       /* spread text horizontally */
+  width: 80vw;               /* occupy 80% of screen width */
+  margin-left: -250px;       /* iyong fixed margin-left mo */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  opacity: 0;
+  animation: slideDownFade 1.2s forwards ease-out;
+  animation-delay: 0.5s;
+
+}
+.about-container p span {
+  display: block;
+  margin-left: -350px; /* moves the line to the right */
+    text-indent: 50px;
+  text-align: center; /* keeps paragraph centered horizontally */
+}
+
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-container h3 {
+  font-size: 32px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  animation-delay: 1.1s;
+}
+
+/* HORIZONTAL LINE */
+.about-line {
+  width: 70%;
+  height: 4px;
+  background-color: black;
+  margin: 20px auto;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1s forwards;
+  animation-delay: 0.7s;
+}
+
+.about-line:hover {
+  height: 6px;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px #000000, 0 0 30px #0008ff;
+  transform: scaleX(1.1);
+}
+
+/* EDUCATION LIST */
+.education-list {
+  display: flex;                 /* horizontal alignment */
+  justify-content: center;       /* center the row horizontally */
+  align-items: flex-start;       /* align images to top */
+  gap: 100px;                    /* space between images */
+  margin-top: 50px;
+}
+
+/* EDUCATION LIST AS HORIZONTAL SCROLLER */
+.education-list {
+  display: flex;
+  gap: 80px;                 /* space between images */
+  padding: 20px;
+  overflow-x: auto;          /* enable horizontal scroll */
+  scroll-behavior: smooth;   /* smooth scroll effect */
+  justify-content: flex-start;
+  align-items: center;
+  
+  /* hide scrollbar */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.education-list::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
+
+.education-bottom-image {
+  margin-left: -105px;
+}
+/* FUN FACTS */
+.fun-facts {
+  list-style: none;
+  padding: 0;
+  width: 80vw;               /* 80% of screen width */
+  max-width: 2000px;         /* optional max width */
+  margin: auto;             /* center horizontally */
+  margin-left: -340px;
+  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  grid-template-rows: repeat(2, auto);  /* 2 rows */
+  gap: 30px;                             /* space between boxes */
+  
+  justify-items: center;    /* center items horizontally inside grid */
+  align-items: center;      /* center items vertically inside grid */
+}
+
+.fun-facts li {
+  color: #ffffff;
+  background-color: rgba(253, 253, 253, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 22px;
+  text-align: center;       /* center text inside each box */
+  transition: transform 0.3s, background-color 0.3s;
+  animation: fadeSlideIn 1s forwards;
+}
+
+.fun-facts li:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .fun-facts {
+    grid-template-columns: 1fr; /* stack vertically */
+    grid-template-rows: auto;
+    width: 90vw;               /* adjust width for mobile */
+    gap: 20px;
+  }
+
+  .fun-facts li {
+    font-size: 18px;
+    padding: 15px;
+  }
+}
+
+
+
+/* ANIMATIONS */
+
+/* Fade in + slide up */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image zoom in */
+@keyframes imageZoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-container {
+    width: 90%;
+  }
+
+  nav {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  nav a {
+    font-size: 20px;
+    padding: 8px 15px;
+  }
+
+  .education-list {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about-container h2 {
+    font-size: 38px;
+  }
+
+  .about-container h3 {
+    font-size: 28px;
+  }
+
+  .about-container p,
+  .fun-facts li {
+    font-size: 18px;
+  }
+}

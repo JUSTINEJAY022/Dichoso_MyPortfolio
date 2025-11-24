@@ -1,0 +1,121 @@
+/* GLOBAL FIX */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0047CF;
+  font-family: 'Cabin', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ALL SECTIONS FULL SCREEN */
+section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0047CF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  overflow: hidden;     
+}
+
+/* HEADER NAVIGATION */
+header {
+  width: 100%;
+  background-color: #000000;
+  padding: 40px 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+overflow: hidden;
+}
+
+nav {
+  display: flex;
+  justify-content: right;
+  gap: 30px;
+  padding-right: 50px;
+  overflow: hidden;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Jomolhari', serif;
+  overflow: hidden;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #0b1c39;
+  color: white;
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+/* CONTACT SECTION */
+.contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    overflow: hidden;
+}
+
+/* Contact Text: fade in + scale up */
+.contact-text {
+    color: #000000;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    max-width: 600px;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: textAppear 1s forwards 0.3s;
+    overflow: hidden;
+}
+
+@keyframes textAppear {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Contact Box */
+.contact-box {
+    background-color: #0b1c39;
+    border-radius: 25px;
+    padding: 40px 50px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Contact Icons wrapper */
+.contact-icons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Contact Icons: initial size only, no bounce */
+.contact-icons img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    overflow: hidden;   
+}
+
+/* Hover effect: zoom + glow */
+.contact-icons img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(255,255,255,0.5);
+    filter: brightness(1.2);
+}

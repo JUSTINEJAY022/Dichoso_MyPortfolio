@@ -1,0 +1,182 @@
+/* GLOBAL FIX */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0047CF;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ALL SECTIONS FULL SCREEN */
+section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0047CF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  background-color: #000000;
+  padding: 30px 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  animation: slideDown 0.8s ease-out;
+}
+
+nav {
+  display: flex;
+  justify-content: right;
+  gap: 30px;
+  padding-right: 50px;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Jomolhari', serif;
+  animation: fadeIn 1.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #0b1c39;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Projects Section */
+.projects {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.projects h1 {
+    color: white;
+    font-size: 55px;
+    letter-spacing: 1px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Rectangle wrapper */
+.project-wrapper {
+    position: relative;
+    background-color: white;
+    width: 95%;
+    max-width: 1300px;
+    padding: 60px;
+    margin: -10px auto 0 auto;
+    border-radius: 30px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    animation: slideUp 1s ease-out;
+    transition: box-shadow 0.4s ease;
+}
+
+.project-wrapper:hover {
+    box-shadow: 0 18px 40px rgba(0, 70, 200, 0.45);
+}
+
+/* Flex container for images */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Each image box */
+.image-box {
+    width: 48%;
+    text-align: center;
+}
+
+.image-box img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-box img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+.image-box p {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Arrow button centered under the white box */
+.arrow-btn {
+    display: block;           /* allow it to sit in the flow */
+    margin: 20px auto 0;      /* top margin 20px, center horizontally */
+    background-color: #4191FA;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 26px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background-color: #0032a0;
+    transform: translateY(-4px); /* subtle hover effect */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image-box {
+        width: 100%;
+    }
+
+    .arrow-btn {
+        position: static;
+        margin-top: 20px;
+        float: right;
+    }
+}
+
+/* ========== ANIMATION KEYFRAMES ========== */
+
+/* Fade-in whole page */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Header slide from top */
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Project box slide from bottom */
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

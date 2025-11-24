@@ -1,0 +1,70 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Justine Intro</title>
+        <link rel="stylesheet" href="INTRO.CSS" />
+        </head>
+
+        <body>
+
+        <header>
+        <nav>
+        <a href="home.html" class="active">HOME</a>
+        <a href="ABOUT_ME.HTML">ABOUT ME</a>
+        <a href="PROJECT.HTML">PROJECTS</a>
+        <a href="SKILL.HTML">SKILLS</a>
+        <a href="CONTACT.HTML">CONTACT</a>
+        </nav>
+        </header>
+  <section id="intro">
+    <video id="introVideo" class="intro-video">
+        <source src="photos/DICHOSO-inro.mp4" type="video/mp4">
+    </video>
+
+    <!-- Play/Pause Button -->
+    <button id="playBtn" class="play-btn">▶ PLAY</button>
+
+    <!-- Optional Volume & Seek Controls -->
+    <div class="video-controls">
+        <input type="range" id="seekBar" value="0" max="100">
+        <input type="range" id="volumeBar" value="100" max="100">
+    </div>
+</section>
+
+  <script>
+const video = document.getElementById("introVideo");
+const seekBar = document.getElementById("seekBar");
+const volumeBar = document.getElementById("volumeBar");
+
+// Toggle play/pause by clicking on the video
+video.addEventListener("click", () => {
+    if(video.paused) {
+        video.muted = false;
+        video.play();
+    } else {
+        video.pause();
+    }
+});
+
+// Update seek bar as video plays
+video.addEventListener("timeupdate", () => {
+    if(video.duration) {
+        const value = (100 / video.duration) * video.currentTime;
+        seekBar.value = value;
+    }
+});
+
+// Seek video
+seekBar.addEventListener("input", () => {
+    const time = (seekBar.value / 100) * video.duration;
+    video.currentTime = time;
+});
+
+// Volume control
+volumeBar.addEventListener("input", () => {
+    video.volume = volumeBar.value / 100;
+});
+</script>
+
